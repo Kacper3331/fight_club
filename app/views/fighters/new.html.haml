@@ -5,4 +5,11 @@
   = f.input :firstname, label: 'Firstname'
   = f.input :lastname, label: 'Lastname'
   = f.input :description, label: 'Description (Optional)'
-  = f.button :submit, 'Create'
+  #h3 Skills
+  .form.form-inline
+    = f.simple_fields_for :skills do |skill|
+      = render 'skill_fields', f: skill
+    .links
+      = link_to_add_association 'add task', f, :skills, class: :btn
+  .actions
+    = f.button :submit
