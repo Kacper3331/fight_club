@@ -1,2 +1,7 @@
 %h1 Fights#new
 %p Find me in app/views/fights/new.html.haml
+
+= simple_form_for @fight do |f|
+  = f.input :first_fighter_id, collection: Fighter.all, label_method: -> (fighter) {"#{fighter.firstname} #{fighter.lastname}"}
+  = f.input :second_fighter_id, collection: Fighter.all, label_method: -> (fighter) {"#{fighter.firstname} #{fighter.lastname}"}
+  = f.button :submit, 'Fight!'
