@@ -1,7 +1,8 @@
 class Fighter < ActiveRecord::Base
   belongs_to :fight
 
-  has_many :skills
+  has_many :skills, dependent: :delete_all
+
   accepts_nested_attributes_for :skills, reject_if: :all_blank, allow_destroy: true
 
   validates :skills, presence: { message: 'You need to add skills' }
@@ -15,7 +16,7 @@ class Fighter < ActiveRecord::Base
   validates :description,
     presence: false
 
-    scope :count_skills, ->(skills_attributes) { skills_attributes.keys.count }
-
     scope :add_exp_points, -> (fighter_info, points) { fighter_info.update(exp_points: fighter_info.exp_points + points) }
+
+    scope :remove_data, -> (fighter_id) { Fighter.where(id: fighter_id).delete_all }
 end
