@@ -19,4 +19,8 @@ class Fighter < ActiveRecord::Base
     scope :add_exp_points, -> (fighter_info, points) { fighter_info.update(exp_points: fighter_info.exp_points + points) }
 
     scope :remove_data, -> (fighter_id) { Fighter.where(id: fighter_id).delete_all }
+
+    scope :count_fights, -> (count_wins, count_loses) { count_wins + count_loses }
+
+    scope :averange_fights, -> (count_wins, count_loses) { count_wins / count_loses }
 end
