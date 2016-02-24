@@ -3,4 +3,8 @@ class Result < ActiveRecord::Base
     Fight.select_skill(fighter_id)
   end
 
+  def self.fighter_info(fighter_id)
+    Fight.fighter_info(fighter_id)
+  end
+
 end
