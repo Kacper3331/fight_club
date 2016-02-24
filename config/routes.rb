@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resource :fights
+  resources :fights
 
-  resource :fighters
+  resources :fighters
 
   get 'main/index'
 

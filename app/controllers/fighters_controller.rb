@@ -14,7 +14,7 @@ class FightersController < ApplicationController
         if count_skills >= 3 && count_skills <= 9
           redirect_to root_path, notice: "New fighter is ready to battle!"
         else
-          redirect_to new_fighters_path, notice: 'You need at least 3 and no more than 9 skills'
+          redirect_to new_fighter_path, notice: 'You need at least 3 and no more than 9 skills'
         end
       end
     else

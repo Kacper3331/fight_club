@@ -11,7 +11,7 @@ class FightsController < ApplicationController
     Fight.add_result_id(@fight, Result.last.id)
 
     if @fight.save
-      redirect_to new_fights_path, notice: 'DUEL END!'
+      redirect_to new_fight_path, notice: 'DUEL END!'
     else
       render :new
     end
