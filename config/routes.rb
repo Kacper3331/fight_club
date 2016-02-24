@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'fights/new'
+  resource :fights
 
   resource :fighters
 
