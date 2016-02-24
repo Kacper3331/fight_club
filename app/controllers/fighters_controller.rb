@@ -3,6 +3,11 @@ class FightersController < ApplicationController
     @fighter = Fighter.new
   end
 
+  def show
+    @fighter_info = Fighter.find_by(id: params[:id])
+    @skills = Skill.where(fighter_id: params[:id])
+  end
+
   def create
     @fighter = Fighter.new(fighter_params)
 

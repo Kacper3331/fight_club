@@ -1,0 +1,13 @@
+%h2 Name: #{@fighter_info.firstname + ' ' + @fighter_info.lastname}
+%h2 Skills:
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Level
+  %tbody
+    - @skills.each do |skill|
+      %tr
+        %td= skill.name
+        %td= skill.level
+
