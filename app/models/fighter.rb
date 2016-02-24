@@ -16,4 +16,6 @@ class Fighter < ActiveRecord::Base
     presence: false
 
     scope :count_skills, ->(skills_attributes) { skills_attributes.keys.count }
+
+    scope :add_exp_points, -> (fighter_info, points) { fighter_info.update(exp_points: fighter_info.exp_points + points) }
 end
