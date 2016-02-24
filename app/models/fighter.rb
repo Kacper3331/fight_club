@@ -7,7 +7,9 @@ class Fighter < ActiveRecord::Base
 
   validates :lastname,
     presence: true
-    
+
   validates :description,
     presence: false
+
+    scope :count_skills, ->(skills_attributes) { skills_attributes.keys.count }
 end
