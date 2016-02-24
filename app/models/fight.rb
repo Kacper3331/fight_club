@@ -4,4 +4,6 @@ class Fight < ActiveRecord::Base
   scope :select_skill, -> (fighter_id) { Skill.where(fighter_id: fighter_id).sample }
 
   scope :fighter_info, -> (fighter_id) { Fighter.where(id: fighter_id).first }
+  scope :calculate_attack, -> (skill_level, exp_points) { (skill_level * rand(0.1..1.0) * exp_points).to_i }
+
 end
