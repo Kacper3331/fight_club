@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'fights/new'
+
   resource :fighters
 
   get 'main/index'
