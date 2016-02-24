@@ -1,4 +1,19 @@
 class Result < ActiveRecord::Base
+  def self.create_result(first_fighter_id, second_fighter_id)
+    first_fighter_skill = select_skill(first_fighter_id)
+    second_fighter_skill = select_skill(second_fighter_id)
+    first_fighter_exp_points = fighter_info(first_fighter_id).exp_points.to_i
+    second_fighter_exp_points = fighter_info(second_fighter_id).exp_points.to_i
+    first_fighter_attack = fighter_attack(first_fighter_skill.level, first_fighter_exp_points)
+    second_fighter_attack = fighter_attack(second_fighter_skill.level, second_fighter_exp_points)
+    
+    if first_fighter_attack > second_fighter_attack
+      add_data(first_fighter_id, second_fighter_id, first_fighter_skill, second_fighter_skill, first_fighter_attack, second_fighter_attack)
+    else
+      add_data(second_fighter_id, first_fighter_id, second_fighter_skill, first_fighter_skill, second_fighter_attack, first_fighter_attack)
+    end
+  end
+
   def self.add_data(winner_id, loser_id, winner_skill, loser_skill, winner_attack, loser_attack)
     result = Result.new
     result.winner_id = winner_id
