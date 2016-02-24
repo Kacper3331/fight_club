@@ -34,6 +34,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'pry-rails',  group: :development
 
+gem "better_errors", group: :development
+
 gem "cocoon"
 
 gem 'simple_form'
