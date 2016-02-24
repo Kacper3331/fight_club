@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'statistics/index'
+
   resources :fights
 
   resources :fighters
