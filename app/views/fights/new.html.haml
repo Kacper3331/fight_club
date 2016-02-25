@@ -1,7 +1,12 @@
-%h1 Fights#new
-%p Find me in app/views/fights/new.html.haml
+%nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
+  %ul.nav.navbar-nav
+    %li= link_to 'Home', root_path
+    %li= link_to 'New Fighter', new_fighter_path
+    %li= link_to 'Ranking', statistics_index_path
 
-= simple_form_for @fight do |f|
-  = f.input :first_fighter_id, collection: Fighter.all, label_method: -> (fighter) {"#{fighter.firstname} #{fighter.lastname}"}
-  = f.input :second_fighter_id, collection: Fighter.all, label_method: -> (fighter) {"#{fighter.firstname} #{fighter.lastname}"}
-  = f.button :submit, 'Fight!'
+%h1 New Duel
+.new_fight
+  = simple_form_for @fight do |f|
+    = f.input :first_fighter_id, collection: Fighter.all.order(created_at: :desc), include_blank: false, prompt: "Select first fighter", label_method: -> (fighter) { "#{fighter.firstname} #{fighter.lastname}" }
+    = f.input :second_fighter_id, collection: Fighter.all.order(created_at: :desc), include_blank: false, prompt: "Select second fighter", label_method: -> (fighter) {"#{fighter.firstname} #{fighter.lastname}"}
+    = f.button :submit, 'Fight!', class: 'btn btn-success'
