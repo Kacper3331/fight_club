@@ -40,6 +40,8 @@ gem 'bootswatch-rails'
 
 gem 'jquery-datatables-rails', '~> 3.3.0'
 
+gem 'jquery-turbolinks'
+
 gem "cocoon"
 
 gem 'simple_form'
