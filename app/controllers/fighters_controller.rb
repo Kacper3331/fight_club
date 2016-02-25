@@ -29,11 +29,10 @@ class FightersController < ApplicationController
           redirect_to new_fighter_path, notice: 'You need at least 3 and no more than 9 skills'
         end
       else
-        flash.now[:notice] = @fighter.errors[:skills].first
         render :new
       end
     else
-      flash.now[:notice] = @fighter.errors[:skills].first
+      flash.now[:notice] = 'You need to add skills'
       render :new
     end
   end

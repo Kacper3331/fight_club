@@ -1,16 +1,18 @@
-%h1 Fighters#new
-%p Find me in app/views/fighters/new.html.haml
-
-= simple_form_for @fighter do |f|
-  = f.input :firstname, label: 'Firstname'
-  = f.input :lastname, label: 'Lastname'
-  = f.input :avatar, label: 'Avatar', as: :file
-  = f.input :description, label: 'Description (Optional)'
-  #h3 Skills
-  .form.form-inline
-    = f.simple_fields_for :skills do |skill|
-      = render 'skill_fields', f: skill
-    .links
-      = link_to_add_association 'add task', f, :skills, class: :btn
-  .actions
-    = f.button :submit
+%nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
+  %ul.nav.navbar-nav
+    %li= link_to 'Home', root_path
+%h1 Create Fighter
+%div.form
+  = simple_form_for @fighter do |f|
+    = f.input :firstname, label: 'Firstname'
+    = f.input :lastname, label: 'Lastname'
+    = f.input :avatar, label: 'Avatar', as: :file
+    = f.input :description, label: 'Description (Optional)'
+    %h4 Skills
+    .form.form-inline
+      = f.simple_fields_for :skills do |skill|
+        = render 'skill_fields', f: skill
+      .links
+        = link_to_add_association 'Add Skill', f, :skills, class: 'btn btn-info', style: 'margin-bottom: 20px; width: 525px;'
+    .actions
+      = f.button :submit, class: 'btn btn-success'
