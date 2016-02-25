@@ -1,2 +1,15 @@
-%h1 Statistics#index
-%p Find me in app/views/statistics/index.html.haml
+%h2 Statistics
+%table#most_fights.table.dataTable
+  %thead
+    %tr
+      %th Nr
+      %th Fullname
+      %th Exp_points
+      %th Fights
+  %tbody
+    - @fighters.each do |fighter|
+      %tr
+        %td
+        %td= fighter.firstname + ' ' + fighter.lastname
+        %td= fighter.exp_points
+        %td= send(:count_fights, fighter.id)

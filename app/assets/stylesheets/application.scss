@@ -1,3 +1,7 @@
 @import "dataTables/bootstrap/3/jquery.dataTables.bootstrap";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.dataTable > thead > tr > th[class*="sort"]:after{
+    content: "" !important;
+}
