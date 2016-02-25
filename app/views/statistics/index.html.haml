@@ -1,4 +1,4 @@
-%h2 Statistics
+%h2 Most fights
 %table#most_fights.table.dataTable
   %thead
     %tr
@@ -13,3 +13,35 @@
         %td= fighter.firstname + ' ' + fighter.lastname
         %td= fighter.exp_points
         %td= send(:count_fights, fighter.id)
+
+%h2 Highest Win/Lose Ratio
+%table#most_win_lose.table.dataTable
+  %thead
+    %tr
+      %th Nr
+      %th Fullname
+      %th Exp_points
+      %th Fights
+  %tbody
+    - @fighters.each do |fighter|
+      %tr
+        %td
+        %td= fighter.firstname + ' ' + fighter.lastname
+        %td= fighter.exp_points
+        %td= send(:averange_wins, fighter.id)
+
+%h2 Most powerful attack
+%table#most_pow_attack.table.dataTable
+  %thead
+    %tr
+      %th Nr
+      %th Fullname
+      %th Exp_points
+      %th Strongest Attack
+  %tbody
+    - @fighters.each do |fighter|
+      %tr
+        %td
+        %td= fighter.firstname + ' ' + fighter.lastname
+        %td= fighter.exp_points
+        %td= send(:strongest_attack, fighter.id)
