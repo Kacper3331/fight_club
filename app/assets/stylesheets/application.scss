@@ -8,6 +8,30 @@
     content: "" !important;
 }
 
+.container {
+  padding-top: 10%;
+}
+
+%p > rules {
+  margin-bottom: 100px;
+}
+
+.buttons {
+  text-align: center;
+}
+
+td.center {
+  text-align: center;
+}
+
+.table tbody > tr > td {
+    vertical-align: middle;
+}
+
+.table thead > tr > th {
+    text-align: center;
+}
+
 body {
   padding-top: 60px;
   padding-left: 20px;

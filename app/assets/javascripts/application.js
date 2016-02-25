@@ -25,9 +25,14 @@ $(document).ready(function() {
     "columnDefs": [ {
             "searchable": false,
             "orderable": false,
-            "targets": 0
+            "targets": 0,
+            "sClass": "right"
         } ],
-    "order": [[ 3, "desc" ]]
+    "order": [[ 3, "desc" ]],
+    "columnDefs": [ {
+      "targets": [2, 3, 4],
+      "sClass": "center"
+    } ]
   });
 
   table.on( 'order.dt search.dt', function () {
@@ -45,7 +50,11 @@ $(document).ready(function() {
             "orderable": false,
             "targets": 0
         } ],
-    "order": [[ 3, "desc" ]]
+    "order": [[ 3, "desc" ]],
+    "columnDefs": [ {
+      "targets": [2, 3, 4],
+      "sClass": "center"
+    } ]
   });
 
   table.on( 'order.dt search.dt', function () {
@@ -62,7 +71,11 @@ $(document).ready(function() {
             "orderable": false,
             "targets": 0
         } ],
-    "order": [[ 3, "desc" ]]
+    "order": [[ 3, "desc" ]],
+    "columnDefs": [ {
+      "targets": [2, 3, 4],
+      "sClass": "center"
+    } ]
   });
 
   table.on( 'order.dt search.dt', function () {
