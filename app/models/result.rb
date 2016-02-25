@@ -6,7 +6,7 @@ class Result < ActiveRecord::Base
     second_fighter_exp_points = fighter_info(second_fighter_id).exp_points.to_i
     first_fighter_attack = fighter_attack(first_fighter_skill.level, first_fighter_exp_points)
     second_fighter_attack = fighter_attack(second_fighter_skill.level, second_fighter_exp_points)
-    
+
     if first_fighter_attack > second_fighter_attack
       add_data(first_fighter_id, second_fighter_id, first_fighter_skill, second_fighter_skill, first_fighter_attack, second_fighter_attack)
     else
@@ -37,5 +37,9 @@ class Result < ActiveRecord::Base
 
   def self.fighter_attack(skill_level, exp_points)
     Fight.calculate_attack(skill_level, exp_points)
+  end
+
+  def self.winner_fighter(fighter_id)
+    Fight.fighter_info(fighter_id).firstname + ' ' + Fight.fighter_info(fighter_id).lastname
   end
 end
