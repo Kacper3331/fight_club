@@ -1,6 +1,8 @@
 @import "dataTables/bootstrap/3/jquery.dataTables.bootstrap";
 @import "bootstrap-sprockets";
+@import "bootswatch/flatly/variables";
 @import "bootstrap";
+@import "bootswatch/flatly/bootswatch";
 
 .dataTable > thead > tr > th[class*="sort"]:after{
     content: "" !important;

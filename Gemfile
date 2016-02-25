@@ -36,6 +36,8 @@ gem 'pry-rails',  group: :development
 
 gem "better_errors", group: :development
 
+gem 'bootswatch-rails'
+
 gem 'jquery-datatables-rails', '~> 3.3.0'
 
 gem "cocoon"
