@@ -36,6 +36,8 @@ gem 'pry-rails',  group: :development
 
 gem "better_errors", group: :development
 
+gem 'jquery-datatables-rails', '~> 3.3.0'
+
 gem "cocoon"
 
 gem 'simple_form'
