@@ -23,4 +23,28 @@ class Fighter < ActiveRecord::Base
     scope :count_fights, -> (count_wins, count_loses) { count_wins + count_loses }
 
     scope :averange_fights, -> (count_wins, count_loses) { count_wins / count_loses }
+
+  def self.strongest_attack(fighter_id)
+    winner_attack = Result.where(winner_id: fighter_id).maximum(:winner_attack)
+    loser_attack = Result.where(loser_id: fighter_id).maximum(:loser_attack)
+    max_winner_attack = winner_attack.nil? ? 0 : winner_attack
+    max_loser_attack = loser_attack.nil? ? 0 : loser_attack
+    if max_winner_attack > max_loser_attack
+      max_winner_attack
+    else
+      max_loser_attack
+    end
+  end
+
+  def self.weakest_attack(fighter_id)
+    winner_attack = Result.where(winner_id: fighter_id).minimum(:winner_attack)
+    loser_attack = Result.where(loser_id: fighter_id).minimum(:loser_attack)
+    min_winner_attack = winner_attack.nil? ? 0 : winner_attack
+    min_loser_attack = loser_attack.nil? ? 0 : loser_attack
+    if min_winner_attack < min_loser_attack
+      min_winner_attack
+    else
+      min_loser_attack
+    end
+  end
 end
