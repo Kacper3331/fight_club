@@ -26,7 +26,7 @@ class Fighter < ActiveRecord::Base
 
     scope :count_fights, -> (count_wins, count_loses) { count_wins + count_loses }
 
-    scope :averange_fights, -> (count_wins, count_loses) { count_wins / count_loses }
+    scope :averange_fights, -> (count_wins, count_loses) { (count_wins.to_f / count_loses.to_f).round(2) }
 
   def self.strongest_attack(fighter_id)
     winner_attack = Result.where(winner_id: fighter_id).maximum(:winner_attack)

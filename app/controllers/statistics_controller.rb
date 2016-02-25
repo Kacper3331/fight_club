@@ -22,6 +22,6 @@ class StatisticsController < ApplicationController
   def averange_wins(fighter_id)
     count_wins = Result.where(winner_id: fighter_id).count
     count_loses = Result.where(loser_id: fighter_id).count
-    @averange_fights = count_wins > 0 && count_loses > 0 ? Fighter.averange_fights(count_wins, count_loses) : 0
+    @averange_fights = count_wins > 0 && count_loses > 0 ? Fighter.averange_fights(count_wins, count_loses) : 0.0
   end
 end
