@@ -24,24 +24,6 @@
         %td= send(:count_fights, fighter.id)
         %td= button_to 'Show Fighter', fighter_path(fighter.id), method: :get, class: 'btn btn-info btn-sm'
 
-%h2 Highest Win/Lose Ratio
-%table#most_win_lose.table.table-bordered.dataTable
-  %thead
-    %tr
-      %th Nr
-      %th Full Name
-      %th Experience Points
-      %th Fights
-      %th{ colspan: "1" }
-  %tbody
-    - @fighters.each do |fighter|
-      %tr
-        %td
-        %td= fighter.firstname + ' ' + fighter.lastname
-        %td= fighter.exp_points
-        %td= send(:averange_wins, fighter.id)
-        %td= button_to 'Show Fighter', fighter_path(fighter.id), method: :get, class: 'btn btn-info btn-sm'
-
 %h2 The Most Powerful Attack
 %table#most_pow_attack.table.table-bordered.dataTable
   %thead

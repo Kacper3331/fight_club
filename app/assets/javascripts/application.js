@@ -44,27 +44,6 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
-  var table = $('#most_win_lose').DataTable({
-    "columnDefs": [ {
-            "searchable": false,
-            "orderable": false,
-            "targets": 0
-        } ],
-    "order": [[ 3, "desc" ]],
-    "columnDefs": [ {
-      "targets": [2, 3, 4],
-      "sClass": "center"
-    } ]
-  });
-
-  table.on( 'order.dt search.dt', function () {
-    table.column(0, {order:'applied'}).nodes().each( function (cell, i) {
-        cell.innerHTML = i+1;
-    } );
-  } ).draw();
-} );
-
-$(document).ready(function() {
   var table = $('#most_pow_attack').DataTable({
     "columnDefs": [ {
             "searchable": false,
