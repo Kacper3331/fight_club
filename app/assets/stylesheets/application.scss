@@ -32,6 +32,11 @@ td.center {
     text-align: center;
 }
 
+.dataTables_info {
+  width: auto;
+  float: left;
+}
+
 body {
   padding-top: 60px;
   padding-left: 20px;
@@ -40,6 +45,36 @@ body {
 
 .messages {
   padding-top: 10px;
+}
+
+.center_stats {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+  margin-left:auto; margin-right:auto
+}
+
+.row {
+  text-align: center;
+}
+
+.stats {
+  max-width: 600px;
+  padding: 10px 10px 10px;
+  margin: 0 auto 20px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
 
 .new_fighter {

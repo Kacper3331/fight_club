@@ -1,4 +1,6 @@
 class FightersController < ApplicationController
+  helper_method [:strongest_skill_attack, :weakest_skill_attack]
+
   def new
     @fighter = Fighter.new
   end
@@ -9,7 +11,7 @@ class FightersController < ApplicationController
     @count_wins = Result.where(winner_id: params[:id]).count
     @count_loses = Result.where(loser_id: params[:id]).count
     @count_fights = Fighter.count_fights(@count_wins, @count_loses)
-    @averange = @count_wins > 0 ||  @count_loses > 0 ? Fighter.averange_fights(@count_wins, @count_loses) : 0
+    @win_percent = @count_wins > 0 ||  @count_fights > 0 ? Fighter.win_percent(@count_wins, @count_fights) : 0
     @strongest_attack = Fighter.strongest_attack(params[:id])
     @weakest_attack = Fighter.weakest_attack(params[:id])
   end
@@ -34,6 +36,31 @@ class FightersController < ApplicationController
     else
       flash.now[:notice] = 'You need to add skills'
       render :new
+    end
+  end
+
+
+  def strongest_skill_attack(skill_id)
+    winner_attack = Result.where(winner_skill_id: skill_id).maximum(:winner_attack)
+    loser_attack =  Result.where(loser_skill_id: skill_id).maximum(:loser_attack)
+    winner_at = winner_attack.nil? ? 0 : winner_attack
+    loser_at = loser_attack.nil? ? 0 : loser_attack
+    if winner_at > loser_at
+      winner_at
+    else
+      loser_at
+    end
+  end
+
+  def weakest_skill_attack(skill_id)
+    winner_attack = Result.where(winner_skill_id: skill_id).minimum(:winner_attack)
+    loser_attack =  Result.where(loser_skill_id: skill_id).minimum(:loser_attack)
+    winner_at = winner_attack.nil? ? 0 : winner_attack
+    loser_at = loser_attack.nil? ? 0 : loser_attack
+    if winner_at > loser_at && loser_at != 0
+      loser_at
+    else
+      winner_at
     end
   end
 
