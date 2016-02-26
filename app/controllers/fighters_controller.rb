@@ -18,14 +18,20 @@ class FightersController < ApplicationController
 
   def create
     @fighter = Fighter.new(fighter_params)
-
     if @fighter.save
       #to count skills data should have skills_attributes
       if !fighter_params[:skills_attributes].nil?
-        #check if amount of skills is greater than or eq 3 and less or eq than 9
         count_skills = Skill.where(fighter_id: Fighter.last.id).count
+        count_uniq_skills = Skill.select(:name).where(fighter_id: Fighter.last.id).uniq.count
+        #check if amount of skills is greater than or eq 3 and less or eq than 9
         if count_skills >= 3 &&  count_skills <= 9
-          redirect_to root_path, notice: "New fighter is ready to battle!"
+          #check if skill names are unique
+          if count_skills == count_uniq_skills
+            redirect_to root_path, notice: "New fighter is ready to battle!"
+          else
+            Fighter.remove_data(Fighter.last.id)
+            redirect_to new_fighter_path, notice: 'Your skill names have to be unique!'
+          end
         else
           Fighter.remove_data(Fighter.last.id)
           redirect_to new_fighter_path, notice: 'You need at least 3 and no more than 9 skills'
@@ -34,7 +40,7 @@ class FightersController < ApplicationController
         render :new
       end
     else
-      flash.now[:notice] = 'You need to add skills'
+      flash.now[:notice] = 'You have to add skills'
       render :new
     end
   end

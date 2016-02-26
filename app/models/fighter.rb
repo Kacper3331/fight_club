@@ -9,7 +9,7 @@ class Fighter < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   validates_attachment_presence :avatar
 
-  validates :skills, presence: { message: 'You need to add skills' }
+  validates :skills, presence: { message: 'You have to add skills' }
 
   validates :firstname,
     presence: true
