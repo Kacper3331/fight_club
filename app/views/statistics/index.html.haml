@@ -13,6 +13,7 @@
         %tr
           %th Nr
           %th Full Name
+          %th Job
           %th Experience Points
           %th Fights
           %th{ colspan: "1" }
@@ -21,6 +22,7 @@
           %tr
             %td
             %td= fighter.firstname + ' ' + fighter.lastname
+            %td= send(:show_job, fighter.job_id)
             %td= fighter.exp_points
             %td= send(:count_fights, fighter.id)
             %td= button_to 'Show Fighter', fighter_path(fighter.id), method: :get, class: 'btn btn-info btn-sm'
@@ -31,6 +33,7 @@
         %tr
           %th Nr
           %th Full Name
+          %th Job
           %th Experience Points
           %th Strongest Attack
           %th{ colspan: "1" }
@@ -39,6 +42,7 @@
           %tr
             %td
             %td= fighter.firstname + ' ' + fighter.lastname
+            %td= send(:show_job, fighter.job_id)
             %td= fighter.exp_points
             %td= send(:strongest_attack, fighter.id)
             %td= button_to 'Show Fighter', fighter_path(fighter.id), method: :get, class: 'btn btn-info btn-sm'

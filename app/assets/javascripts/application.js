@@ -28,7 +28,7 @@ $(document).ready(function() {
             "targets": 0,
             "sClass": "right"
         } ],
-    "order": [[ 3, "desc" ]],
+    "order": [[ 4, "desc" ]],
      "bLengthChange": false,
     "columnDefs": [ {
       "targets": [2, 3, 4],
@@ -51,7 +51,7 @@ $(document).ready(function() {
             "orderable": false,
             "targets": 0
         } ],
-    "order": [[ 3, "desc" ]],
+    "order": [[ 4, "desc" ]],
      "bLengthChange": false,
     "columnDefs": [ {
       "targets": [2, 3, 4],
