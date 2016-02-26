@@ -3,48 +3,48 @@
     %li= link_to 'Home', root_path
     %li= link_to 'New Fight', new_fight_path
     %li= link_to 'Ranking', statistics_index_path
+%body.fighter_page
+  %h1 #{@fighter_info.firstname} #{@fighter_info.lastname}
 
-%h1 #{@fighter_info.firstname} #{@fighter_info.lastname}
-
-%div.row
-  %div.col-xs-6
-    %div.stats{style: 'width: 500px;'}
-      %h3 Skills:
-      %table.table.table-bordered{style: 'width: auto; margin-left:auto; margin-right:auto'}
-        %thead
-          %tr
-            %th Name
-            %th Level
-            %th Max Attack
-            %th Lowest Attack
-        %tbody
-          - @skills.each do |skill|
+  %div.row
+    %div.col-xs-6
+      %div.stats{style: 'width: 500px;'}
+        %h3 Skills:
+        %table.table.table-bordered{style: 'width: auto; margin-left:auto; margin-right:auto'}
+          %thead
             %tr
-              %td{style: 'text-align: left;'}= skill.name
-              %td= skill.level
-              %td= strongest_skill_attack(skill.id)
-              %td= weakest_skill_attack(skill.id)
-  %div.col-xs-6
-    %div.stats
-      %div.row.center
-        %div.col-xs-6.center_stats
-          %h3 Statistics:
-          %div.row{style: 'width: 300px;'}
-            %div.col-xs-7{style: 'text-align: left'}
-              %h5 Wins:
-              %h5 Loses:
-              %h5 Winning percent:
-              %h5 Fights played:
-              %h5 Experience points:
-              %h5 Strongest Attack:
-              %h5 Weakest Attack:
-            %div.col-xs-5
-              %h5 #{@count_wins}
-              %h5 #{@count_loses}
-              %h5 #{@win_percent}%
-              %h5 #{@count_fights}
-              %h5 #{@fighter_info.exp_points}
-              %h5 #{@strongest_attack}
-              %h5 #{@weakest_attack}
-        %div.col-xs-4.center_stats
-          =image_tag @fighter_info.avatar(:small)
+              %th Name
+              %th Level
+              %th Max Attack
+              %th Lowest Attack
+          %tbody
+            - @skills.each do |skill|
+              %tr
+                %td{style: 'text-align: left;'}= skill.name
+                %td= skill.level
+                %td= strongest_skill_attack(skill.id)
+                %td= weakest_skill_attack(skill.id)
+    %div.col-xs-6
+      %div.stats
+        %div.row.center
+          %div.col-xs-6.center_stats
+            %h3 Statistics:
+            %div.row{style: 'width: 300px;'}
+              %div.col-xs-7{style: 'text-align: left'}
+                %h5 Wins:
+                %h5 Loses:
+                %h5 Winning percent:
+                %h5 Fights played:
+                %h5 Experience points:
+                %h5 Strongest Attack:
+                %h5 Weakest Attack:
+              %div.col-xs-5
+                %h5 #{@count_wins}
+                %h5 #{@count_loses}
+                %h5 #{@win_percent}%
+                %h5 #{@count_fights}
+                %h5 #{@fighter_info.exp_points}
+                %h5 #{@strongest_attack}
+                %h5 #{@weakest_attack}
+          %div.col-xs-4.center_stats
+            =image_tag @fighter_info.avatar(:small)

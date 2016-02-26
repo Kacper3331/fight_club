@@ -3,10 +3,10 @@
     %li= link_to 'Home', root_path
     %li= link_to 'New Fighter', new_fighter_path
     %li= link_to 'Ranking', statistics_index_path
-
-%h1 New Duel
-.new_fight
-  = simple_form_for @fight do |f|
-    = f.input :first_fighter_id, collection: Fighter.all.order(created_at: :desc), include_blank: false, prompt: "Select first fighter", label_method: -> (fighter) { "#{fighter.firstname} #{fighter.lastname}" }
-    = f.input :second_fighter_id, collection: Fighter.all.order(created_at: :desc), include_blank: false, prompt: "Select second fighter", label_method: -> (fighter) {"#{fighter.firstname} #{fighter.lastname}"}
-    = f.button :submit, 'Fight!', class: 'btn btn-success'
+%body.fight
+  .form_padding
+    .new_fight
+      = simple_form_for @fight do |f|
+        = f.input :first_fighter_id, collection: Fighter.all.order(created_at: :desc), include_blank: false, prompt: "Select first fighter", label_method: -> (fighter) { "#{fighter.firstname} #{fighter.lastname}" }
+        = f.input :second_fighter_id, collection: Fighter.all.order(created_at: :desc), include_blank: false, prompt: "Select second fighter", label_method: -> (fighter) {"#{fighter.firstname} #{fighter.lastname}"}
+        = f.button :submit, 'Fight!', class: 'btn btn-success'

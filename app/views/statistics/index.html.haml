@@ -4,40 +4,41 @@
     %li= link_to 'New Fighter', new_fighter_path
     %li= link_to 'New Fight', new_fight_path
 
-%h1 Rankings
-
-%h2 The Most Fights
-%table#most_fights.table.table-bordered.dataTable
-  %thead
-    %tr
-      %th Nr
-      %th Full Name
-      %th Experience Points
-      %th Fights
-      %th{ colspan: "1" }
-  %tbody
-    - @fighters.each do |fighter|
-      %tr
-        %td
-        %td= fighter.firstname + ' ' + fighter.lastname
-        %td= fighter.exp_points
-        %td= send(:count_fights, fighter.id)
-        %td= button_to 'Show Fighter', fighter_path(fighter.id), method: :get, class: 'btn btn-info btn-sm'
-
-%h2 The Most Powerful Attack
-%table#most_pow_attack.table.table-bordered.dataTable
-  %thead
-    %tr
-      %th Nr
-      %th Full Name
-      %th Experience Points
-      %th Strongest Attack
-      %th{ colspan: "1" }
-  %tbody
-    - @fighters.each do |fighter|
-      %tr
-        %td
-        %td= fighter.firstname + ' ' + fighter.lastname
-        %td= fighter.exp_points
-        %td= send(:strongest_attack, fighter.id)
-        %td= button_to 'Show Fighter', fighter_path(fighter.id), method: :get, class: 'btn btn-info btn-sm'
+%body.rankings
+  %h1 Rankings
+  %div.back_table
+    %h2 The Most Fights
+    %table#most_fights.table.table-bordered.dataTable
+      %thead
+        %tr
+          %th Nr
+          %th Full Name
+          %th Experience Points
+          %th Fights
+          %th{ colspan: "1" }
+      %tbody
+        - @fighters.each do |fighter|
+          %tr
+            %td
+            %td= fighter.firstname + ' ' + fighter.lastname
+            %td= fighter.exp_points
+            %td= send(:count_fights, fighter.id)
+            %td= button_to 'Show Fighter', fighter_path(fighter.id), method: :get, class: 'btn btn-info btn-sm'
+  %div.back_table
+    %h2 The Most Powerful Attack
+    %table#most_pow_attack.table.table-bordered.dataTable
+      %thead
+        %tr
+          %th Nr
+          %th Full Name
+          %th Experience Points
+          %th Strongest Attack
+          %th{ colspan: "1" }
+      %tbody
+        - @fighters.each do |fighter|
+          %tr
+            %td
+            %td= fighter.firstname + ' ' + fighter.lastname
+            %td= fighter.exp_points
+            %td= send(:strongest_attack, fighter.id)
+            %td= button_to 'Show Fighter', fighter_path(fighter.id), method: :get, class: 'btn btn-info btn-sm'

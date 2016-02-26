@@ -4,18 +4,19 @@
     %li= link_to 'New Fight', new_fight_path
     %li= link_to 'Ranking', statistics_index_path
 
-%div.container
-  %header.jumbotron.hero-spacer
-    %h1 Welcome to Final Fight Club!
-    %p Rules are simple:
-    %p.rules
-      %ul
-        %li First. You have to create fighter.
-        %li Second. While creating fighter you have to give him at least 3 skills and no more than 9.
-        %li Third. You have to fight other fighters and gain Experience points.
-        %li Fourth. Fight are in form of a Duel, you and oponent make one-single attack.
-        %li Fifth. Winner is a Fighter with stronger attack.
-        %li Six. That's it! Have fun!
-    %p.buttons
-      =link_to 'Fight!', new_fight_path, class: 'btn btn-success btn-lg', style: 'margin-right: 400px;'
-      =link_to 'Create Fighter!', new_fighter_path, class: 'btn btn-success btn-lg'
+%body.main#color
+  %div.container
+    %header.jumbotron
+      %h1.color Welcome to Final - Fight Club -
+      %p Rules are simple:
+      %p.rules
+        %ul
+          %li First. You have to create fighter.
+          %li Second. While creating fighter you have to give him at least 3 skills and no more than 9.
+          %li Third. You have to fight other fighters and gain Experience points.
+          %li Fourth. Fight are in form of a Duel, you and oponent make one-single attack.
+          %li Fifth. Winner is a Fighter with stronger attack.
+          %li Six. That's it! Have fun!
+      %p.buttons
+        =link_to 'Fight!', new_fight_path, class: 'btn btn-success btn-lg', style: 'margin-right: 400px;'
+        =link_to 'Create Fighter!', new_fighter_path, class: 'btn btn-success btn-lg'
