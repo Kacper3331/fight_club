@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h2
+      Hello, #{ @fighter.firstname } #{ @fighter.lastname }
+    %h3
+      Congratulations, you won this Duel!
+    %p
+      Below more information about your last fight:
+    %p
+      Used skill: #{@skill.name}
+    %p
+      Skill attack: #{@result.winner_attack}
+    %p
+      Experience Points: #{@fighter.exp_points}
+    %br
+    %h3
+      Information about your oponent:
+    %p
+      Name: #{@oponent.firstname} #{@oponent.lastname}
+    %p
+      Job: #{ @job.name }
+    %p
+      Used Skill: #{@skill_lost.name}
+    %p
+      Skill attack: #{@result.loser_attack}

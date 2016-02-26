@@ -13,6 +13,8 @@ class FightsController < ApplicationController
         Fight.add_result_id(@fight, Result.last.id)
         @winner_name = Result.winner_fighter(Result.last.winner_id)
         if @fight.save
+          ResultMailer.winner(Fighter.where(id: Result.last.winner_id).first).deliver
+          ResultMailer.loser(Fighter.where(id: Result.last.loser_id).first).deliver
           redirect_to new_fight_path, notice: 'DUEL END! Winner: ' + @winner_name
         else
           render :new
