@@ -9,6 +9,7 @@
       = simple_form_for @fighter do |f|
         = f.input :firstname, label: 'Firstname'
         = f.input :lastname, label: 'Lastname'
+        = f.input :job_id, collection: Job.all.order(name: :asc), include_blank: false, prompt: "Select your job"
         = f.input :avatar, label: 'Avatar', as: :file
         = f.input :description, label: 'Description (Optional)'
         %h4 Skills
