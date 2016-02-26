@@ -21,6 +21,15 @@ class Fighter < ActiveRecord::Base
   validates :description,
     presence: false
 
+  validates :job_id,
+    presence: true
+
+  validates :email,
+    presence: true,
+    uniqueness: true
+
+    validates_format_of :email, with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "invalid format"
+
     scope :add_exp_points, -> (fighter_info, points) { fighter_info.update(exp_points: fighter_info.exp_points + points) }
 
     scope :remove_data, -> (fighter_id) { Fighter.where(id: fighter_id).delete_all }
