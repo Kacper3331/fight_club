@@ -34,6 +34,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'factory_girl_rails'
 
+gem "figaro"
+
 group :development, :test do
   gem 'rspec-rails'
 end
