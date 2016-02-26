@@ -1,0 +1,10 @@
+Hello, #{@fighter.firstname} #{@fighter.lastname}
+Welcome to our world of fighting!
+Here's some info about your new fighter:
+Job: #{ @job.name }
+Description: #{ @fighter.description }
+Skills:
+Name | Level
+- @skills.each do |skill|
+  skill.name
+  skill.level

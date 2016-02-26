@@ -27,6 +27,7 @@ class FightersController < ApplicationController
         if count_skills >= 3 &&  count_skills <= 9
           #check if skill names are unique
           if count_skills == count_uniq_skills
+            WelcomeMailer.welcome(@fighter).deliver
             redirect_to root_path, notice: "New fighter is ready to battle!"
           else
             Fighter.remove_data(Fighter.last.id)
