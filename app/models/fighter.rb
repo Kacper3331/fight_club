@@ -1,7 +1,8 @@
 class Fighter < ActiveRecord::Base
   belongs_to :fight
+  belongs_to :job
 
-  has_many :skills, dependent: :delete_all
+  has_many :skills, dependent: :destroy
 
   accepts_nested_attributes_for :skills, reject_if: :all_blank, allow_destroy: true
 

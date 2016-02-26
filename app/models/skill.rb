@@ -1,5 +1,5 @@
 class Skill < ActiveRecord::Base
-  belongs_to :fighter
+  belongs_to :fighter, dependent: :destroy
 
   validates :name,
     presence: true
