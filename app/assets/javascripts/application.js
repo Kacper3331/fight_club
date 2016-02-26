@@ -29,6 +29,7 @@ $(document).ready(function() {
             "sClass": "right"
         } ],
     "order": [[ 3, "desc" ]],
+     "bLengthChange": false,
     "columnDefs": [ {
       "targets": [2, 3, 4],
       "sClass": "center"
@@ -51,6 +52,7 @@ $(document).ready(function() {
             "targets": 0
         } ],
     "order": [[ 3, "desc" ]],
+     "bLengthChange": false,
     "columnDefs": [ {
       "targets": [2, 3, 4],
       "sClass": "center"
