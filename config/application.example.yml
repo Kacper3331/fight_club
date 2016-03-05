@@ -1,0 +1,9 @@
+#Applicaiton is set to use Google Mail Account if you want to use Mailer in this application.
+
+#Please put your email address:
+GMAIL_USERNAME: 'example@example.com'
+
+#Please add your application password.
+#Visit this site: https://security.google.com/settings/security/apppasswords
+#And generate password for this application, then put it here:
+GMAIL_PASSWORD: 'example'
