@@ -30,3 +30,8 @@ Do you want to create your own fighter? Do you want fight other players from aro
 
 ## :dart: Heroku
 Link to application on heroku is in the top of the page. You can create new fighter and check other features.
+
+## :bookmark: Setup
+1. Use `git clone https://github.com/Kacper3331/fight_club.git` to download application
+2. Prepare database: `rake db:setup`
+3. Copy files and provide your data: `cp application.example.yml application.yml`
